@@ -1,12 +1,23 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-    </div>
-    <router-view />
+    <Aside />
+    <main>
+      <!-- <Header/> -->
+      <router-view />
+    </main>
+    <!-- <Player/> -->
   </div>
 </template>
 
+<script>
+import Aside from "./components/AsidePanel";
+export default {
+  components: {
+    Aside,
+  },
+};
+</script> 
+
 <style lang="scss">
-@import './assets/scss/main.scss';
+@import "./assets/scss/main.scss";
 </style>
