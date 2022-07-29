@@ -1,6 +1,36 @@
+html {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
 body {
     position: relative;
     width: 100%;
     height: 100%;
-    
+    background-color: $pink_light;
+}
+ 
+h1 {
+    @include font_title(48px);
+}
+
+h2 {
+    @include font_title(32px);
+}
+
+h3 {
+    @include font_title(20px);
+}
+
+h4 {
+    @include font_title(16px);
+}
+
+.text {
+    @include font_text(14px);
+}
+
+.textBold {
+    @include font_text(14px, 1.2, $black, true);
 }
