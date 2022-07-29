@@ -1,19 +1,17 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import spotify from './modules/spotify'
-
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
+    token: null,
   },
+
   mutations: {
+    AUTH_SUCCES: (state, response) => state.token = response
   },
   actions: {
-  },
-  modules: {
-    spotify
   },
   plugins: [
     // TODO : use persisted state
