@@ -1,0 +1,27 @@
+.navigation {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 40px 0 0;
+
+    &-item {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+
+        text-decoration: none;
+        @extend .text;
+
+        &::before {
+            margin: 0 15px 0 0;
+        }
+
+        &.house::before {
+            content: url($house_svg);
+        }
+        &.search::before {
+            content: url($search_svg);
+        }
+    }
+}
