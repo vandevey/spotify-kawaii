@@ -14,13 +14,35 @@
         fill="#1C1C1C"
       />
     </svg>
-
-    <input class="searchBar-input" type="text" placeholder="Search artist"/>
+    <input
+      class="searchBar-input"
+      type="text"
+      placeholder="Search artist"
+      @keyup="textSearch"
+      v-model="searchValue"
+    />
   </div>
 </template>
 
 <script>
 export default {
   name: "SearchBar",
+
+  data() {
+    return {
+      searchValue: "",
+      searchTimeout: null,
+    };
+  },
+
+  methods: {
+    textSearch() {
+      clearTimeout(this.searchTimeout);
+      this.searchTimeout = setTimeout(this.registerSearch, 500);
+    },
+    registerSearch() {
+      this.$store.commit("SET_SEACH", this.searchValue);
+    },
+  },
 };
 </script>
