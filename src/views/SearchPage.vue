@@ -3,24 +3,32 @@
     <div class="searchPage-container">
       <div class="searchPage-mostRevelant" v-if="results.mostRevelant">
         <h2 class="searchPage-title">Most revelant</h2>
-        <span>{{results.mostRevelant.name}}</span>
+        <TileArtist :artist="results.mostRevelant" />
       </div>
       <div class="searchPage-tracks" v-if="results.tracks">
         <h2 class="searchPage-title">Top tracks</h2>
         <ul>
-          <li v-for="track in results.tracks" :key="track.id">{{track.name}}</li>
+          <li v-for="track in results.tracks" :key="track.id">
+            {{ track.name }}
+          </li>
         </ul>
       </div>
-      <div class="searchPage-artist" v-if="results.artists">
+      <div class="searchPage-artists" v-if="results.artists">
         <h2 class="searchPage-title">Artists</h2>
-         <ul>
-          <li v-for="artist in results.artists" :key="artist.id">{{artist.name}}</li>
-        </ul>
+        <div class="searchPage-artists--list">
+          <TileArtist
+            v-for="artist in results.artists"
+            :key="artist.id"
+            :artist="artist"
+          />
+        </div>
       </div>
       <div class="searchPage-albums" v-if="results.albums">
         <h2 class="searchPage-title">Albums</h2>
-         <ul>
-          <li v-for="album in results.albums" :key="album.id">{{album.name}}</li>
+        <ul>
+          <li v-for="album in results.albums" :key="album.id">
+            {{ album.name }}
+          </li>
         </ul>
       </div>
     </div>
@@ -29,10 +37,13 @@
 
 <script>
 import axios from "axios";
+import TileArtist from "@/components/TileArtist.vue";
 
 export default {
   name: "SearchPage",
-  components: {},
+  components: {
+    TileArtist,
+  },
 
   data() {
     return {
@@ -68,7 +79,7 @@ export default {
       const search_url =
         "https://api.spotify.com/v1/search?q=" +
         parsedText +
-        "&type=track,artist,album&limit=20&market=FR&access_token=" +
+        "&type=track,artist,album&limit=6&market=FR&access_token=" +
         this.$store.state.token;
       axios
         .get(search_url)
