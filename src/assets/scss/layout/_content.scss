@@ -21,6 +21,11 @@ main {
     padding: 50px 30px;
     // background-color: $cyan;
 }
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
  
 h1 {
     @include font_title(48px);

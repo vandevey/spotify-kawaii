@@ -3,10 +3,11 @@
     position: relative;
     
     &-container {
+        @extend .container;
         margin: 50px 0;
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        justify-content: flex-start;
     }
 
     &-title {
@@ -15,7 +16,7 @@
 
     &-mostRevelant {
         width: 280px;
-        margin: 0 80px 0 0;
+        margin: 0 90px 50px 0;
     }
     &-tracks {
         width: 460px;

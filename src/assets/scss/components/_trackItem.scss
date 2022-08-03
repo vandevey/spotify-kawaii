@@ -1,0 +1,41 @@
+.trackItem {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    border-radius: 5px;
+    padding: 10px;
+    transition: background 0.3s ease;
+
+    &:hover {
+        background-color: $white;
+    }
+
+    &-pic {
+        width: 45px;
+        height: 45px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    &-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &-infos {
+        margin: 0 0 0 10px;
+    }
+
+    &-artist {
+        @include font_text(14px);
+    }
+
+    &-duration {
+        margin: 0 0 0 auto;
+        @include font_title(16px);
+    }
+}

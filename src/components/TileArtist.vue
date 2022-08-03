@@ -20,7 +20,6 @@ export default {
     artist: Object,
   },
   mounted() {
-    console.log(this.artist);
   },
 };
 </script>

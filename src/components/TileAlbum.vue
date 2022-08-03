@@ -20,7 +20,6 @@ export default {
     album: Object,
   },
   mounted() {
-    console.log(this.album);
   },
 };
 </script>

@@ -8,9 +8,7 @@
       <div class="searchPage-tracks" v-if="results.tracks">
         <h2 class="searchPage-title">Top tracks</h2>
         <ul>
-          <li v-for="track in results.tracks" :key="track.id">
-            {{ track.name }}
-          </li>
+          <TrackItem v-for="track in results.tracks" :key="track.id" :track="track"/>
         </ul>
       </div>
       <div class="searchPage-artists" v-if="results.artists">
@@ -41,12 +39,14 @@
 import axios from "axios";
 import TileArtist from "@/components/TileArtist.vue";
 import TileAlbum from "@/components/TileAlbum.vue";
+import TrackItem from "@/components/TrackItem.vue";
 
 export default {
   name: "SearchPage",
   components: {
     TileArtist,
     TileAlbum,
+    TrackItem,
   },
 
   data() {
