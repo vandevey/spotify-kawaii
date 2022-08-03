@@ -3,16 +3,26 @@
     <div class="album-container">
       <div class="album-banner" v-if="album">
         <picture class="album-banner--pic">
-          <img class="album-banner--img" :src="album.images[0].url" :alt="album.name" />
+          <img
+            class="album-banner--img"
+            :src="album.images[0].url"
+            :alt="album.name"
+          />
         </picture>
         <div class="album-infos">
-          <span class="album-infos--type">{{ album.album_type }}</span>
-          <h1 class="album-infos--name">{{ album.name }}</h1>
-          <div class="album-infos-details">
-            <router-link v-for="artist in album.artists" :key="artist.id" :to="'/artist/' + artist.id">{{ artist.name }}</router-link>
+          <span class="album-type">{{ album.album_type }}</span>
+          <h1 class="album-name">{{ album.name }}</h1>
+          <div class="album-details">
+            <router-link
+              class="album-details--artists"
+              v-for="artist in album.artists"
+              :key="artist.id"
+              :to="'/artist/' + artist.id"
+              >{{ artist.name }}</router-link
+            >
 
-            <span >{{ album.release_date }}</span>
-            <span >{{ album.total_tracks }} tracks</span>
+            <span class="album-details--item">{{ album.release_date }}</span>
+            <span class="album-details--item">{{ album.total_tracks }} tracks</span>
           </div>
         </div>
       </div>
@@ -44,7 +54,7 @@ export default {
       album: null,
       tracks: null,
     };
-  }, 
+  },
 
   created() {
     axios
@@ -66,8 +76,8 @@ export default {
   computed: {
     totalDuration() {
       // TODO : return sum of each track's duration
-      return ""
+      return "";
     },
-  }
+  },
 };
 </script>

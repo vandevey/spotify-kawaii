@@ -35,6 +35,38 @@
         display: flex;
         flex-direction: column;
     }
+    
+    &-type {
+        @include font_text(16px);
+    }
+
+    &-details {
+        display: flex;
+        margin: 5px 0 0;
+        &--artists {
+            margin: 0 6px 0 0;
+            @include font_text(16px, 1.2, $black, true);
+        }
+
+        &--item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            margin: 0 6px 0 0;
+            @include font_text(16px, 1.2, $black, true); 
+
+            &:before {
+                content: "";
+                display: block;
+                position: relative;
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                background-color: $black;
+                margin: 0 6px 0 0;
+            }
+        }
+    }
 
     &-tracks {
         margin: 50px 0 0;
