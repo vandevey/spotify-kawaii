@@ -1,7 +1,9 @@
 <template>
   <li class="trackItem">
     <picture class="trackItem-pic">
+      <span class="trackItem-number" v-if="trackNumber">{{track.track_number}}</span>
       <img
+        v-else
         class="trackItem-img"
         :src="track.album.images.at(-1).url"
         :alt="track.name"
@@ -21,13 +23,12 @@ export default {
   name: "TrackItem",
   props: {
     track: Object,
+    trackNumber: Boolean,
   },
   mounted() {
     console.log(this.track);
   },
-  methods: {
-    
-  },
+  methods: {},
   computed: {
     durationInMinutes() {
       console.log(this.track.duration_ms);
