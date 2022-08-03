@@ -25,11 +25,13 @@
       </div>
       <div class="searchPage-albums" v-if="results.albums">
         <h2 class="searchPage-title">Albums</h2>
-        <ul>
-          <li v-for="album in results.albums" :key="album.id">
-            {{ album.name }}
-          </li>
-        </ul>
+        <div class="searchPage-artists--list">
+          <TileAlbum
+            v-for="album in results.albums"
+            :key="album.id"
+            :album="album"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -38,11 +40,13 @@
 <script>
 import axios from "axios";
 import TileArtist from "@/components/TileArtist.vue";
+import TileAlbum from "@/components/TileAlbum.vue";
 
 export default {
   name: "SearchPage",
   components: {
     TileArtist,
+    TileAlbum,
   },
 
   data() {
