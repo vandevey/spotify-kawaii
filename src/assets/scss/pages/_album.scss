@@ -1,0 +1,46 @@
+.album {
+    width: 100%;
+
+    &-container {
+        @extend .container;
+    }
+
+    &-banner {
+        background-color: $purple;
+        border-radius: 25px;
+        padding: 32px 38px;
+        width: 100%;
+        display: flex;
+        align-items: flex-end;
+
+        &--pic {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        &--img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &-infos {
+        margin: 0 0 0 35px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &-tracks {
+        margin: 50px 0 0;
+    }
+
+    &-tracks {
+        width: 100%;
+    }
+}
