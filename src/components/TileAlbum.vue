@@ -8,7 +8,7 @@
       />
     </picture>
 
-    <h3 class="tileAlbum-name">{{ album.name }}</h3>
+    <h4 class="tileAlbum-name">{{ album.name }}</h4>
     <span class="tileAlbum-type">{{ album.type }}</span>
   </router-link>
 </template> 
