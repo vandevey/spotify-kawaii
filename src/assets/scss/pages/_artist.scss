@@ -1,0 +1,29 @@
+.artist {
+    width: 100%;
+
+    &-banner {
+        background-color: $purple;
+        border-radius: 25px;
+        padding: 32px 38px;
+        height: 260px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+    }
+
+    &-title {
+        margin: 0 0 25px;  
+    }
+
+    &-albums {
+        width: 100%;
+        overflow: hidden;
+        margin: 50px 0 0; 
+
+        &--list {
+            display: flex;
+            gap: 0 20px;
+        }
+    }
+}
