@@ -4,7 +4,11 @@
 @import './base/reset';
 @import './base/fonts';
 
+@import './components/searchBar';
+
 @import './layout/content';
 @import './layout/navigation';
 @import './layout/header';
 @import './layout/aside';
+
+@import './pages/searchPage';
