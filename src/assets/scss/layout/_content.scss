@@ -10,6 +10,17 @@ body {
     height: 100%;
     background-color: $pink_light;
 }
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: calc(100% - 265px);
+    margin: 0 0 0 265px;
+    padding: 50px 30px;
+    // background-color: $cyan;
+}
  
 h1 {
     @include font_title(48px);

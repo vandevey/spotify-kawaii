@@ -2,7 +2,7 @@
   <div id="app">
     <Aside />
     <main>
-      <!-- <Header/> -->
+      <Header/>
       <router-view />
     </main>
     <!-- <Player/> -->
@@ -11,11 +11,13 @@
 
 <script>
 import Aside from "./components/AsidePanel";
+import Header from "./components/Header";
 import axios from "axios";
 
 export default {
   components: {
     Aside,
+    Header
   },
 
   created() {
