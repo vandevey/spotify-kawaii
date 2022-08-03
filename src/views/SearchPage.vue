@@ -12,6 +12,12 @@ export default {
   data() {
     return {
       currentSearch: "",
+      results: {
+        artists: null,
+        albums: null,
+        tracks: null,
+        mostRevelant: null,
+      },
     };
   },
 
@@ -21,7 +27,7 @@ export default {
     "$store.state.searchValue": {
       handler: function (nv) {
         this.currentSearch = nv;
-       
+
         if (this.currentSearch != "") {
           this.search();
         }
@@ -43,10 +49,29 @@ export default {
         .get(search_url)
         .then((response) => {
           console.log(response);
+          this.results = {
+            tracks: this.sortByPopularity(response.data.tracks?.items),
+            artists: this.sortByPopularity(response.data.artists?.items),
+            albums: this.sortByPopularity(response.data.albums?.items),
+            mostRevelant: this.getMostRevelantArtist(
+              response.data.artists?.items
+            ),
+          };
         })
         .catch((e) => {
           console.log(e);
         });
+    },
+    sortByPopularity(array) {
+      return array.sort(function (a, b) {
+        return b.popularity - a.popularity;
+      });
+    },
+    getMostRevelantArtist(artists) {
+      const mostRevelant = artists.find((artist) => {
+        return artist.name.toLowerCase() == this.currentSearch;
+      });
+      return mostRevelant;
     },
   },
 };
