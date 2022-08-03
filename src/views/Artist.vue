@@ -64,22 +64,22 @@ export default {
       .catch((e) => {
         console.log(e);
       });
-    // axios
-    //   .get(
-    //     `https://api.spotify.com/v1/artists/${this.$route.params.id}/top-tracks`,
-    //     {
-    //       headers: {
-    //         Authorization: "Bearer " + this.$store.state.token, //the token is a variable which holds the token
-    //       },
-    //     }
-    //   )
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     this.tracks = response.data;
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    //   });
+    axios
+      .get(
+        `https://api.spotify.com/v1/artists/${this.$route.params.id}/top-tracks&market=fr`,
+        {
+          headers: {
+            Authorization: "Bearer " + this.$store.state.token, 
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+        this.tracks = response.data.items;
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   },
 };
 </script>
