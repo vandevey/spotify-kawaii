@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    
+    <Overlay />
     <Aside />
     <main>
       <Header/>
@@ -11,13 +13,15 @@
 
 <script>
 import Aside from "./components/AsidePanel";
+import Overlay from "./components/Overlay";
 import Header from "./components/Header";
 import axios from "axios";
 
 export default {
   components: {
     Aside,
-    Header
+    Header,
+    Overlay
   },
 
   created() {
