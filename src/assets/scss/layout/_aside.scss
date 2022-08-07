@@ -10,4 +10,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-} 
+
+    &-link {
+        align-self: flex-start;
+        margin: auto 0 0;
+        @include font_text(12px, 1.2, $black, true); 
+    }
+}
+ 
