@@ -1,0 +1,21 @@
+.searchBar {
+    background-color: $white;
+    border-radius: 25px;
+    padding: 10px;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    &-input {
+        position: relative;
+        margin: 0 25px;
+        width: 340px;
+        border: none;
+        @include font_text(14px);
+        
+        &:focus {
+            outline: none;
+        }
+    }
+}

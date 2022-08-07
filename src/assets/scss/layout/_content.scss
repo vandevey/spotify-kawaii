@@ -4,3 +4,43 @@ body {
     height: 100%;
     
 }
+
+main {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: calc(100% - 265px);
+    margin: 0 0 0 265px;
+    padding: 50px 30px;
+    // background-color: $cyan;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+ 
+h1 {
+    @include font_title(48px);
+}
+
+h2 {
+    @include font_title(32px);
+}
+
+h3 {
+    @include font_title(20px);
+}
+
+h4 {
+    @include font_title(16px);
+}
+
+.text {
+    @include font_text(14px);
+}
+
+.textBold {
+    @include font_text(14px, 1.2, $black, true);
+}

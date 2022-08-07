@@ -4,10 +4,17 @@
 @import './base/_reset.scss';
 @import './base/_fonts.scss';
 
-@import './layout/_navigation.scss';
-@import './layout/_header.scss';
+@import './components/searchBar';
+@import './components/tileArtist';
+@import './components/tileAlbum';
+@import './components/trackItem';
+@import './components/overlay';
 
-@import './components/_buttons.scss';
+@import './layout/content';
+@import './layout/navigation';
+@import './layout/header';
+@import './layout/aside';
 
-@import './pages/_home.scss'; 
- 
+@import './pages/searchPage';
+@import './pages/artist';
+@import './pages/album';

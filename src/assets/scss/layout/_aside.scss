@@ -1,0 +1,20 @@
+.aside {
+    position: fixed;
+    top: 20px;
+    left: 25px;
+    background-color: $white;
+    padding: 40px 30px;
+    border-radius: 25px;
+    height: calc(100% - 40px);
+    width: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-link {
+        align-self: flex-start;
+        margin: auto 0 0;
+        @include font_text(12px, 1.2, $black, true); 
+    }
+}
+ 
