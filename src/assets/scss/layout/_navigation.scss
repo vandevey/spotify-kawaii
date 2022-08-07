@@ -8,7 +8,7 @@
     &-item {
         display: flex;
         align-items: center;
-        margin: 5px 0;
+        margin: 10px 0;
 
         text-decoration: none;
         @extend .text;
@@ -20,6 +20,7 @@
         &.house::before {
             content: url($house_svg);
         }
+        
         &.search::before {
             content: url($search_svg);
         }

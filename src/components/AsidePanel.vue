@@ -15,6 +15,7 @@
     </svg>
 
     <Navigation />
+    <a class="aside-link" href="//www.linkedin.com/in/yoan-vandevelde-48768a150/" target="_yv">About</a>
   </aside>
 </template> 
 

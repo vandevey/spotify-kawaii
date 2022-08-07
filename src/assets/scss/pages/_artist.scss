@@ -11,6 +11,14 @@
         flex-direction: column;
         justify-content: flex-end;
     }
+    
+    &-name {
+        margin: 0 0 15px;  
+    }
+
+    &-sub {
+        @include font_text(14px, 1.4, $black, true); 
+    }
 
     &-title {
         margin: 0 0 25px;  
