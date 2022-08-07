@@ -3,8 +3,9 @@
     height: 100vh;
     position: fixed;
     z-index: 100;
-   
-    
+    pointer-events: none;
+    user-select: none;
+
     &-old {
         position: relative;
         width: 100%;
@@ -13,5 +14,115 @@
         align-items: center;
         justify-content: center;
         background-color: $grey1;
+        z-index: 100;
+    }
+
+    &-new {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 102;
+        opacity: 0;
+
+        &--logo {
+            position: relative;
+            display: block;
+            opacity: 0;
+            transform: scale(0);
+            transform-origin: 50% 50%;
+        }
+    }
+
+    &-shapes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 101;
+    }
+
+    &-path {
+        &:nth-of-type(1) {
+            fill: $cyan;
+        }
+        &:nth-of-type(2) {
+            fill: $purple;
+        }
+    }
+
+
+    &-title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        display: flex;
+        flex-direction: column;
+        z-index: 103;
+        @include font_title(70px, 1.2, $purple);
+
+        span {
+            position: relative;
+            opacity: 0;
+            &:first-child {
+                right: 60px;
+                &::before {
+                    -webkit-text-stroke: 12px $cyan;
+                }
+            }
+            &:last-child {
+                left: 60px;
+                &:before{
+                    -webkit-text-stroke: 12px $green;
+                }
+            }
+
+            &::before {
+                content: attr(data-text);
+                text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: -1;
+            }
+        }
+    }
+
+    &-clouds {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 101;
+        opacity: 0;
+
+        span {
+            content: url($cloud_svg);
+            position: absolute;
+            &:nth-child(1) {
+                top: 55%;
+                left: 20%;
+                // width: 120px;
+            }
+            &:nth-child(2) {
+                top: 65%;
+                left: 30%;
+                width: 100px;
+            }
+            &:nth-child(3) {
+                top: 45%;
+                left: 60%;
+                width: 120px;
+            }
+        }
     }
 }
