@@ -1,8 +1,8 @@
-@import './abstracts/_variables.scss';
-@import './abstracts/_mixins.scss';
+@import './abstracts/variables';
+@import './abstracts/mixins';
 
-@import './base/_reset.scss';
-@import './base/_fonts.scss';
+@import './base/reset';
+@import './base/fonts';
 
 @import './components/searchBar';
 @import './components/tileArtist';
