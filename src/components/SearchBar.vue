@@ -41,7 +41,7 @@ export default {
       this.searchTimeout = setTimeout(this.registerSearch, 500);
     },
     registerSearch() {
-      this.$store.commit("SET_SEACH", this.searchValue);
+      this.$store.commit("SET_SEARCH", this.searchValue);
     },
   },
 };
