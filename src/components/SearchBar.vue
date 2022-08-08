@@ -36,12 +36,17 @@ export default {
   },
 
   methods: {
+    // trigger when user is typing
     textSearch() {
+      // on keyup, clear timeout
       clearTimeout(this.searchTimeout);
+      // if user stop typing for 500ms, register the search
       this.searchTimeout = setTimeout(this.registerSearch, 500);
     },
+
+    // store search value with SET_SEARCH mutation
     registerSearch() {
-      this.$store.commit("SET_SEACH", this.searchValue);
+      this.$store.commit("SET_SEARCH", this.searchValue);
     },
   },
 };

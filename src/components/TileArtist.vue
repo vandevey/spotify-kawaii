@@ -7,7 +7,6 @@
         :alt="artist.name"
       />
     </picture>
-
     <h3 class="tileArtist-name">{{ artist.name }}</h3>
     <span class="tileArtist-type">{{ artist.type }}</span>
   </router-link>

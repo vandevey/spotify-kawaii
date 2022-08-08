@@ -1,14 +1,11 @@
 <template>
   <div id="app">
-    <transition>
-      <Overlay v-if="$store.state.isLoading" />
-    </transition>
+    <Overlay v-if="$store.state.isLoading" />
     <Aside />
     <main>
       <Header />
       <router-view />
     </main>
-    <!-- <Player/> -->
   </div>
 </template>
 
@@ -30,22 +27,19 @@ export default {
   },
 
   methods: {
+    // Auth to spotify API and get access token
     async getAuth() {
       axios("https://accounts.spotify.com/api/token", {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
-          Authorization:
-            "Basic " +
-            btoa(
-              process.env.VUE_APP_CLIENT_ID +
-                ":" +
-                process.env.VUE_APP_CLIENT_SECRET
-            ),
+          // get credentials from .env file
+          Authorization: "Basic " + btoa(`${process.env.VUE_APP_CLIENT_ID}:${process.env.VUE_APP_CLIENT_SECRET}`),
         },
         data: "grant_type=client_credentials",
         method: "POST",
       })
         .then((tokenResponse) => {
+          // store access token with AUTH_SUCCES mutation
           this.$store.commit("AUTH_SUCCES", tokenResponse.data.access_token);
         })
         .catch((error) => {

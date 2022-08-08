@@ -1,6 +1,7 @@
 
 <template>
     <header class="header">
+        <!-- show only on search page -->
         <SearchBar v-if="this.$route.name == 'SearchPage'"/>
     </header>
 </template>

@@ -11,27 +11,23 @@
     </picture>
 
     <div class="trackItem-infos">
-      <h3 class="trackItem-name">{{ track.name }}</h3>
-      <span class="trackItem-artist">{{ track.type }}</span>
+     <h3 class="trackItem-name">{{ track.name }}</h3>
+       <span class="trackItem-artist" v-if="!trackNumber">{{ track.album.name }}</span>
     </div>
     <span class="trackItem-duration">{{ durationInMinutes }}</span>
   </li>
-</template> 
+</template>  
 
 <script>
 export default {
   name: "TrackItem",
   props: {
-    track: Object,
-    trackNumber: Boolean,
+    track: Object, 
+    trackNumber: Boolean, // display track number and hide album name
   },
-  mounted() {
-    console.log(this.track);
-  },
-  methods: {},
   computed: {
+    // return duration in minute from track's duration data in ms
     durationInMinutes() {
-      console.log(this.track.duration_ms);
       const minutes = Math.floor(this.track.duration_ms / 60000);
       const seconds = ((this.track.duration_ms % 60000) / 1000).toFixed(0);
       return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;

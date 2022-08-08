@@ -12,15 +12,14 @@ export default new Vuex.Store({
 
   mutations: {
     AUTH_SUCCES: (state, response) => state.token = response,
-    SET_SEACH: (state, response) => {
+    SET_SEARCH: (state, response) => {
       state.searchValue = response
     },
     // TMS = Transition Méga Stylé
-    TMS_ENDED:(state) => state.isLoading = false
+    TMS_ENDED: (state) => state.isLoading = false
   },
   actions: {
   },
   plugins: [
-    // TODO : use persisted state
   ]
 })

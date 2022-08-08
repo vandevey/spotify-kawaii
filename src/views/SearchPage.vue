@@ -8,7 +8,11 @@
       <div class="searchPage-tracks" v-if="results.tracks">
         <h2 class="searchPage-title">Top tracks</h2>
         <ul>
-          <TrackItem v-for="track in results.tracks" :key="track.id" :track="track"/>
+          <TrackItem
+            v-for="track in results.tracks"
+            :key="track.id"
+            :track="track"
+          />
         </ul>
       </div>
       <div class="searchPage-artists" v-if="results.artists">
@@ -64,10 +68,12 @@ export default {
   mounted() {},
 
   watch: {
+    // watch stored search value
     "$store.state.searchValue": {
       handler: function (nv) {
         this.currentSearch = nv;
 
+        // search if string value is not empty
         if (this.currentSearch != "") {
           this.search();
         }
@@ -78,17 +84,18 @@ export default {
 
   methods: {
     async search(item = this.currentSearch) {
-      console.log(item);
+      // replace spaces with "+"
       const parsedText = item.replace(/\s+/g, "+");
       const search_url =
         "https://api.spotify.com/v1/search?q=" +
         parsedText +
         "&type=track,artist,album&limit=6&market=FR&access_token=" +
         this.$store.state.token;
+
       axios
         .get(search_url)
         .then((response) => {
-          console.log(response);
+          // sort and set results values
           this.results = {
             tracks: this.sortByPopularity(response.data.tracks?.items),
             artists: this.sortByPopularity(response.data.artists?.items),
@@ -102,11 +109,14 @@ export default {
           console.log(e);
         });
     },
+    // order array by popularity
     sortByPopularity(array) {
       return array.sort(function (a, b) {
         return b.popularity - a.popularity;
       });
     },
+    
+    // get most revelant artist if search match with existing artist
     getMostRevelantArtist(artists) {
       const mostRevelant = artists.find((artist) => {
         return artist.name.toLowerCase() == this.currentSearch;
