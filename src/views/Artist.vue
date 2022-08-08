@@ -68,7 +68,7 @@ export default {
         `https://api.spotify.com/v1/artists/${this.$route.params.id}/top-tracks&market=fr`,
         {
           headers: {
-            Authorization: "Bearer " + this.$store.state.token, 
+            Authorization: "Bearer " + this.$store.state.token,
           },
         }
       )

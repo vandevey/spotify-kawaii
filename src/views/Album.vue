@@ -22,7 +22,9 @@
             >
 
             <span class="album-details--item">{{ album.release_date }}</span>
-            <span class="album-details--item">{{ album.total_tracks }} tracks</span>
+            <span class="album-details--item"
+              >{{ album.total_tracks }} tracks</span
+            >
           </div>
         </div>
       </div>
@@ -60,7 +62,7 @@ export default {
     axios
       .get(`https://api.spotify.com/v1/albums/${this.$route.params.id}`, {
         headers: {
-          Authorization: "Bearer " + this.$store.state.token, //the token is a variable which holds the token
+          Authorization: "Bearer " + this.$store.state.token,
         },
       })
       .then((response) => {
@@ -70,13 +72,6 @@ export default {
       .catch((e) => {
         console.log(e);
       });
-  },
-
-  computed: {
-    totalDuration() {
-      // TODO : return sum of each track's duration
-      return "";
-    },
   },
 };
 </script>

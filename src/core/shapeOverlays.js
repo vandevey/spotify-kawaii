@@ -76,28 +76,3 @@ export default class ShapeOverlays {
         }
     }
 }
-
-//   (function() {
-//     const elmHamburger = document.querySelector('.hamburger');
-//     const gNavItems = document.querySelectorAll('.global-menu__item');
-//     const elmOverlay = document.querySelector('.shape-overlays');
-//     const overlay = new ShapeOverlays(elmOverlay);
-
-//     elmHamburger.addEventListener('click', () => {
-//       if (overlay.isAnimating) {
-//         return false;
-//       }
-//       overlay.toggle();
-//       if (overlay.isOpened === true) {
-//         elmHamburger.classList.add('is-opened-navi');
-//         for (var i = 0; i < gNavItems.length; i++) {
-//           gNavItems[i].classList.add('is-opened');
-//         }
-//       } else {
-//         elmHamburger.classList.remove('is-opened-navi');
-//         for (var i = 0; i < gNavItems.length; i++) {
-//           gNavItems[i].classList.remove('is-opened');
-//         }
-//       }
-//     });
-//   }());

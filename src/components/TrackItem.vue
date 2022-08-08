@@ -25,13 +25,9 @@ export default {
     track: Object,
     trackNumber: Boolean,
   },
-  mounted() {
-    console.log(this.track);
-  },
   methods: {},
   computed: {
     durationInMinutes() {
-      console.log(this.track.duration_ms);
       const minutes = Math.floor(this.track.duration_ms / 60000);
       const seconds = ((this.track.duration_ms % 60000) / 1000).toFixed(0);
       return minutes + ":" + (seconds < 10 ? "0" : "") + seconds;

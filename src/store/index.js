@@ -21,6 +21,5 @@ export default new Vuex.Store({
   actions: {
   },
   plugins: [
-    // TODO : use persisted state
   ]
 })

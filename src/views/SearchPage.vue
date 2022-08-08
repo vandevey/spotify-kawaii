@@ -8,7 +8,11 @@
       <div class="searchPage-tracks" v-if="results.tracks">
         <h2 class="searchPage-title">Top tracks</h2>
         <ul>
-          <TrackItem v-for="track in results.tracks" :key="track.id" :track="track"/>
+          <TrackItem
+            v-for="track in results.tracks"
+            :key="track.id"
+            :track="track"
+          />
         </ul>
       </div>
       <div class="searchPage-artists" v-if="results.artists">

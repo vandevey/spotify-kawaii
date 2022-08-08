@@ -8,7 +8,6 @@
       <Header />
       <router-view />
     </main>
-    <!-- <Player/> -->
   </div>
 </template>
 
