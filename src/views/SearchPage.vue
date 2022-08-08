@@ -1,40 +1,48 @@
 <template>
   <div class="searchPage">
     <div class="searchPage-container">
-      <div class="searchPage-mostRevelant" v-if="results.mostRevelant">
-        <h2 class="searchPage-title">Most revelant</h2>
-        <TileArtist :artist="results.mostRevelant" />
-      </div>
-      <div class="searchPage-tracks" v-if="results.tracks">
-        <h2 class="searchPage-title">Top tracks</h2>
-        <ul>
-          <TrackItem
-            v-for="track in results.tracks"
-            :key="track.id"
-            :track="track"
-          />
-        </ul>
-      </div>
-      <div class="searchPage-artists" v-if="results.artists">
-        <h2 class="searchPage-title">Artists</h2>
-        <div class="searchPage-artists--list">
-          <TileArtist
-            v-for="artist in results.artists"
-            :key="artist.id"
-            :artist="artist"
-          />
+      <transition name="fade">
+        <div class="searchPage-mostRevelant" v-if="results.mostRevelant">
+          <h2 class="searchPage-title">Most revelant</h2>
+          <TileArtist :artist="results.mostRevelant" />
         </div>
-      </div>
-      <div class="searchPage-albums" v-if="results.albums">
-        <h2 class="searchPage-title">Albums</h2>
-        <div class="searchPage-artists--list">
-          <TileAlbum
-            v-for="album in results.albums"
-            :key="album.id"
-            :album="album"
-          />
+      </transition>
+      <transition name="fade">
+        <div class="searchPage-tracks" v-if="results.tracks.length > 0">
+          <h2 class="searchPage-title">Top tracks</h2>
+          <ul>
+            <TrackItem
+              v-for="track in results.tracks"
+              :key="track.id"
+              :track="track"
+            />
+          </ul>
         </div>
-      </div>
+      </transition>
+      <transition name="fade">
+        <div class="searchPage-artists" v-if="results.artists.length > 0">
+          <h2 class="searchPage-title">Artists</h2>
+          <div class="searchPage-artists--list">
+            <TileArtist
+              v-for="artist in results.artists"
+              :key="artist.id"
+              :artist="artist"
+            />
+          </div>
+        </div>
+      </transition>
+      <transition name="fade">
+        <div class="searchPage-albums" v-if="results.albums.length > 0">
+          <h2 class="searchPage-title">Albums</h2>
+          <div class="searchPage-artists--list">
+            <TileAlbum
+              v-for="album in results.albums"
+              :key="album.id"
+              :album="album"
+            />
+          </div>
+        </div>
+      </transition>
     </div>
   </div>
 </template>
@@ -57,9 +65,9 @@ export default {
     return {
       currentSearch: "",
       results: {
-        artists: null,
-        albums: null,
-        tracks: null,
+        artists: [],
+        albums: [],
+        tracks: [],
         mostRevelant: null,
       },
     };
@@ -115,7 +123,7 @@ export default {
         return b.popularity - a.popularity;
       });
     },
-    
+
     // get most revelant artist if search match with existing artist
     getMostRevelantArtist(artists) {
       const mostRevelant = artists.find((artist) => {
