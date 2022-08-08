@@ -8,7 +8,7 @@ export default {
    props: {
     path: String,
     text: String,
-    icon: String,
+    icon: String, // change encoded icon in css, should match with icon variable in ~/assets/scss/abstracts/_variables.scss
   }
 };
 </script>
