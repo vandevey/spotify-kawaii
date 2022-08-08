@@ -1,7 +1,8 @@
 # spotify-kawaii
 
 ## Env prerequist
-Node vesion 14.19.0
+Node version 14.19.0
+
 npm ^6.0.0
 
 ## Project setup
