@@ -64,7 +64,6 @@ export default {
         },
       })
       .then((response) => {
-        console.log(response);
         this.album = response.data;
         this.tracks = response.data.tracks.items;
       })

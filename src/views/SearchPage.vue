@@ -78,7 +78,6 @@ export default {
 
   methods: {
     async search(item = this.currentSearch) {
-      console.log(item);
       const parsedText = item.replace(/\s+/g, "+");
       const search_url =
         "https://api.spotify.com/v1/search?q=" +
@@ -88,7 +87,6 @@ export default {
       axios
         .get(search_url)
         .then((response) => {
-          console.log(response);
           this.results = {
             tracks: this.sortByPopularity(response.data.tracks?.items),
             artists: this.sortByPopularity(response.data.artists?.items),

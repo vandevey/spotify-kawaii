@@ -1,4 +1,3 @@
-// import gsap from "gsap/all";
 import ease from "./utils/ease"
 
 export default class ShapeOverlays {
@@ -13,7 +12,6 @@ export default class ShapeOverlays {
         this.timeStart = Date.now();
         this.isOpened = false;
         this.isAnimating = false;
-        console.log(this.path);
     }
     toggle() {
         this.isAnimating = true;

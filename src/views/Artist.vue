@@ -43,7 +43,6 @@ export default {
         },
       })
       .then((response) => {
-        console.log(response.data);
         this.artist = response.data;
       })
       .catch((e) => {
@@ -74,7 +73,6 @@ export default {
         }
       )
       .then((response) => {
-        console.log(response.data);
         this.tracks = response.data.items;
       })
       .catch((e) => {
