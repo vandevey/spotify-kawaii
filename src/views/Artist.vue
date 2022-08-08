@@ -36,10 +36,11 @@ export default {
   },
 
   created() {
+    // get artist's informations from spotify API
     axios
       .get(`https://api.spotify.com/v1/artists/${this.$route.params.id}`, {
         headers: {
-          Authorization: "Bearer " + this.$store.state.token, //the token is a variable which holds the token
+          Authorization: "Bearer " + this.$store.state.token,
         },
       })
       .then((response) => {
@@ -48,12 +49,13 @@ export default {
       .catch((e) => {
         console.log(e);
       });
+    // get artist's albums from spotify API
     axios
       .get(
         `https://api.spotify.com/v1/artists/${this.$route.params.id}/albums?limit=8`,
         {
           headers: {
-            Authorization: "Bearer " + this.$store.state.token, //the token is a variable which holds the token
+            Authorization: "Bearer " + this.$store.state.token,
           },
         }
       )
@@ -63,6 +65,8 @@ export default {
       .catch((e) => {
         console.log(e);
       });
+    // get artist's top tracks from spotify API
+    // TODO : not working
     axios
       .get(
         `https://api.spotify.com/v1/artists/${this.$route.params.id}/top-tracks&market=fr`,

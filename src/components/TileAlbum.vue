@@ -7,7 +7,6 @@
         :alt="album.name"
       />
     </picture>
-
     <h4 class="tileAlbum-name">{{ album.name }}</h4>
     <span class="tileAlbum-type">{{ album.type }}</span>
   </router-link>

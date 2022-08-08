@@ -68,10 +68,12 @@ export default {
   mounted() {},
 
   watch: {
+    // watch stored search value
     "$store.state.searchValue": {
       handler: function (nv) {
         this.currentSearch = nv;
 
+        // search if string value is not empty
         if (this.currentSearch != "") {
           this.search();
         }
@@ -82,15 +84,18 @@ export default {
 
   methods: {
     async search(item = this.currentSearch) {
+      // replace spaces with "+"
       const parsedText = item.replace(/\s+/g, "+");
       const search_url =
         "https://api.spotify.com/v1/search?q=" +
         parsedText +
         "&type=track,artist,album&limit=6&market=FR&access_token=" +
         this.$store.state.token;
+
       axios
         .get(search_url)
         .then((response) => {
+          // sort and set results values
           this.results = {
             tracks: this.sortByPopularity(response.data.tracks?.items),
             artists: this.sortByPopularity(response.data.artists?.items),
@@ -104,11 +109,14 @@ export default {
           console.log(e);
         });
     },
+    // order array by popularity
     sortByPopularity(array) {
       return array.sort(function (a, b) {
         return b.popularity - a.popularity;
       });
     },
+    
+    // get most revelant artist if search match with existing artist
     getMostRevelantArtist(artists) {
       const mostRevelant = artists.find((artist) => {
         return artist.name.toLowerCase() == this.currentSearch;

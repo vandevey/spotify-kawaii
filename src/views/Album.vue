@@ -59,6 +59,7 @@ export default {
   },
 
   created() {
+    // get album's data from spotify API
     axios
       .get(`https://api.spotify.com/v1/albums/${this.$route.params.id}`, {
         headers: {

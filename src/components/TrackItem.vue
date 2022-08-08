@@ -22,10 +22,11 @@
 export default {
   name: "TrackItem",
   props: {
-    track: Object,
+    track: Object, 
     trackNumber: Boolean, // display track number and hide album name
   },
   computed: {
+    // return duration in minute from track's duration data in ms
     durationInMinutes() {
       const minutes = Math.floor(this.track.duration_ms / 60000);
       const seconds = ((this.track.duration_ms % 60000) / 1000).toFixed(0);

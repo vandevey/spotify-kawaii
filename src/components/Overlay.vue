@@ -66,7 +66,10 @@ export default {
   },
 
   mounted() {
+    // set overlay animation, with animated svg in param
     this.shapeOverlay = new ShapeOverlays(this.$refs.overlayShapes);
+
+    // setup animation timeline
     this.overlayTimeline = gsap.timeline({ delay: 2 });
 
     // TOFIX : $ref not working
@@ -88,42 +91,39 @@ export default {
       ease: "elastic.out(1, 0.3)",
     });
 
-    this.overlayTimeline.to(".overlay-title span", {
-      opacity: 1,
-      xPercent: gsap.utils.wrap([5, -5]),
-      delay: gsap.utils.wrap([0, 0.2]),
-      duration: 0.4,
-      ease:"power2.out",
-    },"-=0.4");
-
     this.overlayTimeline.to(
-      ".overlay-clouds",
+      ".overlay-title span",
       {
         opacity: 1,
-        duration: 0.2,
-      
-      }
+        xPercent: gsap.utils.wrap([5, -5]),
+        delay: gsap.utils.wrap([0, 0.2]),
+        duration: 0.4,
+        ease: "power2.out",
+      },
+      "-=0.4"
     );
+
+    this.overlayTimeline.to(".overlay-clouds", {
+      opacity: 1,
+      duration: 0.2,
+    });
 
     this.overlayTimeline.to(".overlay-clouds span", {
       x: gsap.utils.wrap([30, 20, 40]),
       duration: 3,
       onComplete: () => {
+        // close overlay
         this.shapeOverlay.toggle();
+        // update store with TMS_ENDED mutation to notify that transition is ended
         setTimeout(() => this.$store.commit("TMS_ENDED"), 1000);
       },
     });
 
-    this.overlayTimeline.to(
-      ".overlay-new",
-      {
-        opacity: 0,
-        duration: 0.3,
-      }
-    );
+    this.overlayTimeline.to(".overlay-new", {
+      opacity: 0,
+      duration: 0.3,
+    });
   },
-
-  methods: {},
 };
 </script> 
 
