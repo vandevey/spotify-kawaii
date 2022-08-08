@@ -4,7 +4,9 @@
     <Aside />
     <main>
       <Header />
-      <router-view />
+      <transition name="fade">
+        <router-view />
+      </transition>
     </main>
   </div>
 </template>
@@ -33,7 +35,11 @@ export default {
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
           // get credentials from .env file
-          Authorization: "Basic " + btoa(`${process.env.VUE_APP_CLIENT_ID}:${process.env.VUE_APP_CLIENT_SECRET}`),
+          Authorization:
+            "Basic " +
+            btoa(
+              `${process.env.VUE_APP_CLIENT_ID}:${process.env.VUE_APP_CLIENT_SECRET}`
+            ),
         },
         data: "grant_type=client_credentials",
         method: "POST",
