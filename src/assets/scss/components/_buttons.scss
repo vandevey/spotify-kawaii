@@ -1,0 +1,25 @@
+.button {
+    background-color: $white;
+    border-radius: 25px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    margin: 0 10px 0 0;
+    cursor: pointer;
+
+    svg {
+        width: 18px;
+        height: 18px;
+        position: relative;
+
+        
+    }
+
+    &.next {
+        svg {
+            transform: scaleX(-1);
+        }
+    }
+}

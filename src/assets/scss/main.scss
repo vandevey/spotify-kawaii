@@ -1,5 +1,6 @@
 @import './abstracts/variables';
 @import './abstracts/mixins';
+@import './abstracts/transitions';
 
 @import './base/reset';
 @import './base/fonts';
@@ -9,6 +10,7 @@
 @import './components/tileAlbum';
 @import './components/trackItem';
 @import './components/overlay';
+@import './components/buttons';
 
 @import './layout/content';
 @import './layout/navigation';
